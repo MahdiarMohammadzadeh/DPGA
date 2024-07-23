@@ -1,0 +1,43 @@
+Data Streams Returned by the Kinect
+
+The Kinect® for Windows® device returns these data streams.
+
+    Image stream (returned by the color sensor)
+
+    Depth stream (returned by the depth sensor)
+
+    Skeletal stream (returned by the depth sensor)
+
+    Audio stream (not used by the Image Acquisition Toolbox™, but could be used with MATLAB audiorecorder)
+
+Image Stream
+
+The image stream returns color image data and other formats using the Kinect color sensor. It supports the following formats.
+Format	Description
+RawYUV_640x480	Raw YUV format. Resolution of 640 x 480, frame rate of 15 frames per second, which is the maximum allowed.
+RGB_1280x960	RGB format. Resolution of 1280 x 960, frame rate of 12 frames per second, which is the maximum allowed.
+RGB_640x480	RGB format. Resolution of 640 x 480, frame rate of 30 frames per second, which is the maximum allowed.
+YUV_640x480	YUV format. Resolution of 640 x 480, frame rate of 15 frames per second, which is the maximum allowed.
+Infrared_640x480	Infrared format. MONO16 frame type with resolution of 640 x 480, frame rate of 30 frames per second, which is the maximum allowed.
+
+The infrared stream allows you to capture frames in low light situations.
+RawBayer_1280x960	Raw Bayer format. MONO8 frame type with resolution of 1280 x 960, frame rate of 12 frames per second, which is the maximum allowed.
+
+This format returns the raw Bayer pattern, so you can use your own algorithm to reconstruct the color image.
+RawBayer_640x480	Raw Bayer format. MONO8 frame type with resolution of 640 x 480, frame rate of 30 frames per second, which is the maximum allowed.
+
+This format returns the raw Bayer pattern, so you can use your own algorithm to reconstruct the color image.
+
+Depth Stream
+
+The depth stream returns person segmentation data using the Kinect depth sensor. The depth map is distance in millimeters from the camera plane. For Skeletal Tracking only two people can be tracked at a given time, although six people can be segmented at a time. This means it can provide full tracking on two skeletons, and partial position tracking on up to four more. The tracking ranges are a default range of 50 cm to 400 cm and a near range of 40 cm to 300 cm.
+
+The depth stream supports the following formats.
+Format	Description
+Depth_640x480	Resolution of 640 x 480, frame rate of 30 frames per second
+Depth_320x240	Resolution of 320 x 240, frame rate of 30 frames per second
+Depth_80x60	Resolution of 80 x 60, frame rate of 30 frames per second
+
+Skeletal Stream
+
+The skeletal stream returns skeletal data using the Kinect depth device. The skeleton frame returned contains data on the ground plane position and a time stamp. It contains the overall position of the skeleton and the 3-D position of all 20 joints (position in meters). Two skeletons are actively tracked, and another four are tracked passively.
